@@ -81,7 +81,8 @@ More details about the contents and use of all these files is given in README.tx
 * jupyter lab
 * visual Studio Code
 
-![alt text](https://github.com/mahak-dev/Movie-Recommender-Engine/blob/main/Graph1.jpeg)
+![alt text](https://github.com/mahak-dev/Movie-Recommender-Engine/blob/main/graph.jpeg)
+![alt text](https://github.com/mahak-dev/Movie-Recommender-Engine/blob/main/architect.jpeg)
 
 ### Dataset Approach
 
