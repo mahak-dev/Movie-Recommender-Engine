@@ -108,5 +108,5 @@ Simple Recommender: The IMDB Weighted Rating System was used to calculate rating
    
    ----
    ### Here is the Project link 
-[this link](https://mahak-gupta.herokuapp.com/).
-[this link](https://mrs-engine.herokuapp.com/).
+[Profile](https://mahak-gupta.herokuapp.com/).
+[Project](https://mrs-engine.herokuapp.com/).
