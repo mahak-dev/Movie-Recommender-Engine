@@ -1,0 +1,41 @@
+ implementation of a movie recommendation engine using classification techniques.
+
+1. Data Preparation:
+   - Two datasets, 'tmdb_5000_movies.csv' and 'tmdb_5000_credits.csv', are read into pandas dataframes: `movies` and `credits`.
+   - The two dataframes are merged on the 'title' column, resulting in a combined dataframe, `movies`.
+   - Unnecessary columns are dropped, and missing values are removed.
+
+2. Data Preprocessing:
+   - The 'genres', 'keywords', 'cast', and 'crew' columns are converted from JSON format to lists of relevant values using the `ast.literal_eval` function.
+   - Helper functions are defined to extract specific information from these columns, such as genre names, keywords, cast names, and the director's name.
+   - The extracted information is applied to the respective columns using the `apply` function.
+
+3. Feature Extraction:
+   - The 'overview', 'genres', 'keywords', 'cast', and 'crew' columns are further processed to generate meaningful tags.
+   - The 'overview' column is split into individual words.
+   - Spaces are removed from genre, keyword, cast, and crew names.
+   - All the processed columns are concatenated into a new column called 'tags'.
+
+4. Text Processing:
+   - The 'tags' column is converted to lowercase and passed through a stemming process using the PorterStemmer from the NLTK library.
+   - Stemming reduces words to their root form to improve text matching.
+
+5. Vectorization:
+   - The CountVectorizer from scikit-learn is used to convert the processed 'tags' into numerical feature vectors.
+   - The vectorizer is fit on the 'tags' column, limiting the maximum number of features to 5000 and removing English stop words.
+   - The feature vectors are obtained using the `fit_transform` method.
+
+6. Similarity Calculation:
+   - Cosine similarity is computed between the feature vectors, resulting in a similarity matrix.
+   - Each element in the similarity matrix represents the similarity between two movies based on their tags.
+
+7. Movie Recommendation:
+   - The `recommend` function takes a movie title as input.
+   - It finds the index of the input movie in the dataframe and retrieves its corresponding row in the similarity matrix.
+   - The function sorts the similarity scores in descending order and prints the titles of the most similar movies, excluding the input movie itself.
+
+8. Model Persistence:
+   - The resulting dataframe `new_df`, containing movie titles and tags, is converted to a dictionary and saved as 'movie_dict.pkl' using the pickle module.
+   - The similarity matrix is saved as 'similarity.pkl' using pickle as well.
+
+The code demonstrates a basic movie recommendation engine that uses the content-based filtering approach. It recommends movies similar to the user's input based on the textual information (tags) associated with each movie.
